@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d24aoryf0ntm0"]
+[gd_scene load_steps=9 format=3 uid="uid://d24aoryf0ntm0"]
 
 [ext_resource type="Texture2D" uid="uid://bhucyqpr3mrpq" path="res://media/Hana Caraka Cozy Island - Free/tileset - simplified transparent.png" id="1_jrytv"]
 [ext_resource type="Texture2D" uid="uid://cxfp80ev1buq1" path="res://media/Hana Caraka Cozy Island - Free/tileset - simplified.png" id="2_geh1u"]
 [ext_resource type="Texture2D" uid="uid://qq6myyuiin42" path="res://media/Hana Caraka Cozy Island - Free/props.png" id="3_bk53o"]
+[ext_resource type="PackedScene" uid="uid://dla34mw3fiok3" path="res://escenas/player.tscn" id="4_hcw2g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vdear"]
 texture = ExtResource("1_jrytv")
@@ -120,3 +121,6 @@ layer_2/tile_data = PackedInt32Array(131073, 2, 3, 393217, 2, 0, 720897, 2, 3, 9
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(347, 175)
 zoom = Vector2(2, 2)
+
+[node name="Player" parent="." instance=ExtResource("4_hcw2g")]
+position = Vector2(59, 55)
