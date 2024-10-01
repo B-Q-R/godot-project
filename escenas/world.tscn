@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d24aoryf0ntm0"]
+[gd_scene load_steps=9 format=3 uid="uid://d24aoryf0ntm0"]
 
 [ext_resource type="Texture2D" uid="uid://bhucyqpr3mrpq" path="res://media/Hana Caraka Cozy Island - Free/tileset - simplified transparent.png" id="1_jrytv"]
 [ext_resource type="Texture2D" uid="uid://cxfp80ev1buq1" path="res://media/Hana Caraka Cozy Island - Free/tileset - simplified.png" id="2_geh1u"]
 [ext_resource type="Texture2D" uid="uid://qq6myyuiin42" path="res://media/Hana Caraka Cozy Island - Free/props.png" id="3_bk53o"]
+[ext_resource type="PackedScene" uid="uid://dla34mw3fiok3" path="res://escenas/player.tscn" id="4_hcw2g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vdear"]
 texture = ExtResource("1_jrytv")
@@ -117,6 +118,5 @@ layer_1/tile_data = PackedInt32Array(786432, 131073, 6, 21, 65537, 7, 0, 196609,
 layer_2/name = "ysort"
 layer_2/tile_data = PackedInt32Array(131073, 2, 3, 393217, 2, 0, 720897, 2, 3, 983041, 2, 0, 1245187, 2, 3, 327685, 589826, 0, 589829, 524290, 0, 983045, 2, 0, 720903, 524290, 0, 8, 2, 3, 262152, 2, 0, 983049, 2, 3, 1245195, 2, 0, 327692, 2, 3, 983052, 2, 0, 13, 2, 0, 720911, 524290, 0, 327696, 2, 0, 17, 2, 3, 851985, 524290, 0, 1114131, 524290, 0, 196628, 524290, 0, 655380, 589826, 0, 1245204, 2, 3, 720917, 2, 0, 1048598, 589826, 0, 655383, 524290, 0, 851991, 2, 0, 24, 2, 0, 589848, 2, 0, 1114136, 524290, 0, 786457, 589826, 0, 917529, 2, 3, 327706, 2, 0, 1245210, 2, 0, 393246, 589826, 0, 31, 2, 3, 196639, 524290, 0, 1048607, 589826, 0, 1245215, 2, 3, 720928, 524290, 0, 393250, 589826, 0, 65572, 589826, 0, 262180, 524290, 0, 589860, 524290, 0, 131109, 131074, 0, 1245221, 2, 0, 852006, 524290, 0, 39, 131074, 3, 196648, 589826, 0, 131113, 131074, 3, 393257, 2, 0, 589865, 2, 3, 917545, 2, 3, 1179689, 2, 0)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(347, 175)
-zoom = Vector2(2, 2)
+[node name="Player" parent="." instance=ExtResource("4_hcw2g")]
+position = Vector2(93, 58)
