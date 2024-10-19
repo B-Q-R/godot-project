@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvn0v7usc7pg8"]
+
+[ext_resource type="Script" path="res://script/onion_seed_pack.gd" id="1_ymnpp"]
+[ext_resource type="Texture2D" uid="uid://dj13knw4tbd17" path="res://media/Hana Caraka Crops - Free/Crops.png" id="1_yvyqu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spo8y"]
+atlas = ExtResource("1_yvyqu")
+region = Rect2(144, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1nyyh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spo8y")
+}],
+"loop": true,
+"name": &"onionSeed",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r3gue"]
+radius = 5.09902
+
+[node name="onion_seedPack" type="StaticBody2D"]
+script = ExtResource("1_ymnpp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1nyyh")
+animation = &"onionSeed"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_r3gue")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

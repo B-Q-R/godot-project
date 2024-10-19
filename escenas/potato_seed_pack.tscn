@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://k0iuq30lanww"]
+
+[ext_resource type="Script" path="res://script/potato_seed_pack.gd" id="1_m6mkj"]
+[ext_resource type="Texture2D" uid="uid://dj13knw4tbd17" path="res://media/Hana Caraka Crops - Free/Crops.png" id="2_knuhd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7jne"]
+atlas = ExtResource("2_knuhd")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x5pky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7jne")
+}],
+"loop": true,
+"name": &"potatoSeed",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5tfg"]
+radius = 5.0
+
+[node name="potato_seedPack" type="StaticBody2D"]
+script = ExtResource("1_m6mkj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x5pky")
+animation = &"potatoSeed"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_u5tfg")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

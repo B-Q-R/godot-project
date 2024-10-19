@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds81rcpfqxtvs"]
+
+[ext_resource type="Texture2D" uid="uid://dj13knw4tbd17" path="res://media/Hana Caraka Crops - Free/Crops.png" id="1_lkiv6"]
+[ext_resource type="Script" path="res://script/carrot_seed_pack.gd" id="1_nf6gh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm64y"]
+atlas = ExtResource("1_lkiv6")
+region = Rect2(272, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohpw6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm64y")
+}],
+"loop": true,
+"name": &"carrotSeed",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ankqj"]
+radius = 5.0
+
+[node name="carrot_seedPack" type="StaticBody2D"]
+script = ExtResource("1_nf6gh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ohpw6")
+animation = &"carrotSeed"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ankqj")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
