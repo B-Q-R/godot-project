@@ -295,11 +295,20 @@ size = Vector2(7, 15)
 script = ExtResource("1_i685i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(29, 27)
 sprite_frames = SubResource("SpriteFrames_udbc6")
 animation = &"front_idle"
 autoplay = "front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(29.5, 36.5)
+position = Vector2(0.5, 9.5)
 shape = SubResource("RectangleShape2D_1lec7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(3, 10)
+zoom = Vector2(1.25, 1.25)
+limit_left = 0
+limit_top = -16
+limit_right = 480
+limit_bottom = 176
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
