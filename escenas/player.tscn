@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dla34mw3fiok3"]
+[gd_scene load_steps=41 format=3 uid="uid://dla34mw3fiok3"]
 
 [ext_resource type="Texture2D" uid="uid://bhocobiyd67gh" path="res://media/Base Character - Free/player.png" id="1_hh5lc"]
 [ext_resource type="Script" path="res://script/player.gd" id="1_i685i"]
@@ -288,13 +288,18 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lec7"]
+size = Vector2(7, 15)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_i685i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(55, -20)
+position = Vector2(29, 27)
 sprite_frames = SubResource("SpriteFrames_udbc6")
 animation = &"front_idle"
 autoplay = "front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29.5, 36.5)
+shape = SubResource("RectangleShape2D_1lec7")
