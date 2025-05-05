@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnrn7aegqiirv"]
+
+[ext_resource type="Script" path="res://script/main_menu.gd" id="1_r732p"]
+[ext_resource type="Texture2D" uid="uid://c2xakncvv15qu" path="res://media/background.png" id="2_12j17"]
+[ext_resource type="PackedScene" uid="uid://bkin2uvpp7wmu" path="res://escenas/main_menu/options_menu.tscn" id="3_xk7lo"]
+[ext_resource type="AudioStream" uid="uid://c8ckrc7r6deox" path="res://music&sounds/music/POL-king-of-coins-short.wav" id="4_1x53j"]
+
+[sub_resource type="SystemFont" id="SystemFont_mtsbk"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_1c81v"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[node name="Main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r732p")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_12j17")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("SystemFont_mtsbk")
+theme_override_font_sizes/font_size = 64
+text = "CLONE STARDEW"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_1c81v")
+theme_override_font_sizes/font_size = 17
+text = "Start Game"
+
+[node name="Options_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_1c81v")
+theme_override_font_sizes/font_size = 16
+text = "Options"
+
+[node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_1c81v")
+theme_override_font_sizes/font_size = 16
+text = "Exit Game"
+
+[node name="Options_Menu" parent="." instance=ExtResource("3_xk7lo")]
+visible = false
+layout_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1x53j")
+volume_db = 14.0
+autoplay = true
+bus = &"Music"

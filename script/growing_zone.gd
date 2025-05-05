@@ -5,7 +5,7 @@ var plantGrowing = false
 var plantGrown = false
 
 func _physics_process(delta: float):
-	print(Global.plantSelected)
+	# print(Global.plantSelected)
 	if plantGrowing == false:
 		plant = Global.plantSelected
 
@@ -45,7 +45,7 @@ func _on_carrot_timer_timeout() -> void:
 		carrot_plant.frame = 1
 		$carrotTimer.start()
 	elif carrot_plant.frame == 1:
-		carrot_plant = 2
+		carrot_plant.frame = 2
 		plantGrown = true
 
 func _on_potato_timer_timeout() -> void:
@@ -54,7 +54,7 @@ func _on_potato_timer_timeout() -> void:
 		potato_plant.frame = 1
 		$potatoTimer.start()
 	elif potato_plant.frame == 1:
-		potato_plant = 2
+		potato_plant.frame = 2
 		plantGrown = true
 
 func _on_spinach_timer_timeout() -> void:
@@ -63,7 +63,7 @@ func _on_spinach_timer_timeout() -> void:
 		spinach_plant.frame = 1
 		$spinachTimer.start()
 	elif spinach_plant.frame == 1:
-		spinach_plant = 2
+		spinach_plant.frame = 2
 		plantGrown = true
 
 func _on_radish_timer_timeout() -> void:
@@ -72,7 +72,7 @@ func _on_radish_timer_timeout() -> void:
 		radish_plant.frame = 1
 		$radishTimer.start()
 	elif radish_plant.frame == 1:
-		radish_plant = 2
+		radish_plant.frame = 2
 		plantGrown = true
 
 func _on_onion_timer_timeout() -> void:
@@ -81,7 +81,7 @@ func _on_onion_timer_timeout() -> void:
 		onion_plant.frame = 1
 		$onionTimer.start()
 	elif onion_plant.frame == 1:
-		onion_plant = 2
+		onion_plant.frame = 2
 		plantGrown = true
 
 func _on_turnip_timer_timeout() -> void:
@@ -90,5 +90,40 @@ func _on_turnip_timer_timeout() -> void:
 		turnip_plant.frame = 1
 		$turnipTimer.start()
 	elif turnip_plant.frame == 1:
-		turnip_plant = 2
+		turnip_plant.frame = 2
 		plantGrown = true
+
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if Input.is_action_just_pressed("click"):
+		if plantGrown:
+			if plant == 1:
+				print("if 1")
+				Global.numCarrots += 1
+				print("if 1 suma")
+				plantGrowing = false
+				plantGrown = false
+				print("if 1 conversion false")
+				$plant.play("noPlants")
+				print("if 1 accion noPlants")
+			if plant == 2:
+				print("if 2")
+				Global.numOnions += 1
+				print("if 1 suma")
+				plantGrowing = false
+				plantGrown = false
+				print("if 1 conversion false")
+				$plant.play("noPlants")
+				print("if 1 accion noPlants")
+			if plant == 3:
+				Global.numPotatoes += 1
+				plantGrowing = false
+				plantGrown = false
+				$plant.play("noPlants")
+			else:
+				pass
+		print("Numero de zanahorias: " + str(Global.numCarrots))
+		print("Numero de cebollas: " + str(Global.numOnions))
+		print("Numero de papas: " + str(Global.numPotatoes))
+		
+		

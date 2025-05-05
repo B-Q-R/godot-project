@@ -112,7 +112,7 @@ animations = [{
 "frames": [],
 "loop": true,
 "name": &"noPlants",
-"speed": 0.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -201,9 +201,10 @@ sprite_frames = SubResource("SpriteFrames_psp1r")
 animation = &"noPlants"
 
 [node name="carrotTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="potatoTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 2.0
 
 [node name="spinachTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -212,12 +213,13 @@ wait_time = 5.0
 wait_time = 5.0
 
 [node name="onionTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 2.0
 
 [node name="turnipTimer" type="Timer" parent="."]
 wait_time = 25.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="carrotTimer" to="." method="_on_carrot_timer_timeout"]
 [connection signal="timeout" from="potatoTimer" to="." method="_on_potato_timer_timeout"]
 [connection signal="timeout" from="spinachTimer" to="." method="_on_spinach_timer_timeout"]

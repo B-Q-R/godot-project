@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg6s7gtqct1dx"]
+[gd_scene load_steps=8 format=3 uid="uid://dg6s7gtqct1dx"]
 
 [ext_resource type="TileSet" uid="uid://566b402fblav" path="res://Tiles/world_tileset.tres" id="1_j8qvu"]
 [ext_resource type="PackedScene" uid="uid://dla34mw3fiok3" path="res://escenas/player.tscn" id="2_pq5uu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cvn0v7usc7pg8" path="res://escenas/onion_seed_pack.tscn" id="4_ihq4r"]
 [ext_resource type="PackedScene" uid="uid://ds81rcpfqxtvs" path="res://escenas/carrot_seed_pack.tscn" id="4_nhnl4"]
 [ext_resource type="PackedScene" uid="uid://k0iuq30lanww" path="res://escenas/potato_seed_pack.tscn" id="5_1ioiy"]
+[ext_resource type="PackedScene" uid="uid://dnrn7aegqiirv" path="res://escenas/main_menu/main_menu.tscn" id="7_gaj5j"]
 
 [node name="Granja" type="Node2D"]
 
@@ -68,4 +69,8 @@ position = Vector2(65, 70)
 position = Vector2(83, 70)
 
 [node name="Player" parent="." instance=ExtResource("2_pq5uu")]
-position = Vector2(229, 64)
+position = Vector2(90, 87)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("7_gaj5j")]
